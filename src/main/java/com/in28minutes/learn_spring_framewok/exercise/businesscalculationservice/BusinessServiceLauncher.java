@@ -1,6 +1,7 @@
 package com.in28minutes.learn_spring_framewok.exercise.businesscalculationservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,7 @@ interface DataService {
 }
 
 @Component
+@Qualifier("MongoDBQualifier")
 class MongoDbDataService implements DataService {
     public int[] retrieveData() {
         return new int[] {11, 22, 33, 44, 55};
@@ -34,7 +36,7 @@ class BusinessCalculationService {
     private DataService dataService;
 
     @Autowired
-    public BusinessCalculationService(DataService dataService) {
+    public BusinessCalculationService(@Qualifier("MongoDBQualifier") DataService dataService) {
         this.dataService = dataService;
     }
     public int findMax() {
