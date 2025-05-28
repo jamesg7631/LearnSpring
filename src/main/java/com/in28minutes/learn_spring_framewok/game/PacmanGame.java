@@ -1,5 +1,10 @@
 package com.in28minutes.learn_spring_framewok.game;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+@Component
+@Qualifier("PG")
 public class PacmanGame implements GamingConsole{
 
     @Override

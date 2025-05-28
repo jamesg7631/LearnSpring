@@ -1,5 +1,11 @@
 package com.in28minutes.learn_spring_framewok.game;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Component
+@Qualifier("MG")
 public class MarioGame implements GamingConsole{
     public void up() {
         System.out.println("Jump");
